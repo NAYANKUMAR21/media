@@ -22,6 +22,7 @@ app.post('/login', async (req, res) => {
       await client.set('key', 'Nayan');
       const value = await client.get('key');
       await client.disconnect();
+      await client.quit();
       return res
         .status(200)
         .send({ message: 'Account Successfully logged In', token, value });

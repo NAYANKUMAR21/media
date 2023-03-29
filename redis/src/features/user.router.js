@@ -6,6 +6,7 @@ app.get('/', async (req, res) => {
     await client.connect();
     let redisValue = await client.get('key');
     await client.disconnect();
+    await client.quit();
     return res
       .status(200)
       .send({ message: `Successfully redis value read  `, redisValue });
