@@ -1,13 +1,15 @@
 const { createClient } = require('redis');
 const client = createClient({
-  port: '6379',
-  host: 'redis-server',
+  url: 'redis://127.0.0.1:6379',
+  username: 'default', // use your Redis user. More info https://redis.io/docs/management/security/acl/
+  password: 'gU9oBAT3oqOMS4NyXO01hMggO8yDom8H', // use your password here
 });
-client.on('connect', () => {
+client.isReady;
+client.on('connect', function () {
   console.log(`Client connected to server`);
 });
-client.on('error', (err) => console.log('Redis Client Error', err));
-client.on('disconnect', () => {
+client.on('error', (err) => console.log('Error Encountered', err));
+client.on('disconnect', function () {
   console.log(`Redis diconnected`);
 });
 module.exports = client;

@@ -6,9 +6,17 @@ const argon2 = require('argon2');
 const jwt = require('jsonwebtoken');
 const client = require('../redis');
 
-app.get('/', (req, res) => {
-  return res.send(`<h2>Welcome To backend Login Route</h2>`);
+app.get('/', async (req, res) => {
+  try {
+    const data = await userModel.find();
+    return res
+      .status(200)
+      .send({ data, message: `<h2>Welcome To backend Login Route</h2>` });
+  } catch (er) {
+    return res.status(404).send({ message: er.message });
+  }
 });
+
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -17,12 +25,10 @@ app.post('/login', async (req, res) => {
     console.log(check);
     if (check) {
       const token = jwt.sign({ id: email, rollNo: 234 }, process.env.TOKEN_KEY);
-      await client.connect();
 
       await client.set('key', 'Nayan');
       const value = await client.get('key');
-      await client.disconnect();
-      await client.quit();
+
       return res
         .status(200)
         .send({ message: 'Account Successfully logged In', token, value });
@@ -52,6 +58,22 @@ app.post('/signup', async (req, res) => {
     return res
       .status(400)
       .send({ message: `Account Already Existed ${email}` });
+  } catch (er) {
+    return res.status(404).send({ message: er.message });
+  }
+});
+app.delete('/delete', async (req, res) => {
+  try {
+    const data = await userModel.deleteMany({});
+    return res.status(200).send({ message: data, data });
+  } catch (er) {
+    return res.status(404).send({ message: er.message });
+  }
+});
+app.post('/logout', async (req, res) => {
+  try {
+    await client.disconnect();
+    return res.status(200).send({ message: ` Now make another request` });
   } catch (er) {
     return res.status(404).send({ message: er.message });
   }
