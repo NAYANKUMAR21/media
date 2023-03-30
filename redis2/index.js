@@ -1,6 +1,6 @@
 const express = require('express');
 const redis = require('redis');
-const client = redis.createClient();
+const client = redis.createClient(6379, '127.0.0.1');
 const app = express();
 const cors = require('cors');
 client.on('connect', () => {
