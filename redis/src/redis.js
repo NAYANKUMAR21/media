@@ -1,10 +1,6 @@
 const { createClient } = require('redis');
-const client = createClient({
-  url: 'redis://127.0.0.1:6379',
-  username: 'default', // use your Redis user. More info https://redis.io/docs/management/security/acl/
-  password: 'gU9oBAT3oqOMS4NyXO01hMggO8yDom8H', // use your password here
-});
-client.isReady;
+const client = createClient();
+
 client.on('connect', function () {
   console.log(`Client connected to server`);
 });
