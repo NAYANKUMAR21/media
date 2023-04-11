@@ -1,8 +1,5 @@
 var num = 12;
-function call() {
-  var add = num + num;
-  console.log(add);
-}
+
 // call();
 // console.log(num, add);
 
@@ -28,7 +25,7 @@ if (age > 10) {
 }
 console.log(num);
 
-function call() {
+function call2() {
   let x = 10;
   return function call1() {
     let y = 20;

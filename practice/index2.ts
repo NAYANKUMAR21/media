@@ -1,17 +1,18 @@
-function Array() {
+function Array1() {
   this.length = 0;
 }
-Array.prototype.push = function (x) {
+Array1.prototype.push = function (x: number): number {
   this[this.length] = x;
   this.length++;
+  return this.length;
 };
-Array.prototype.pop = function () {
+Array1.prototype.pop = function (): number {
   let x = this[this.length - 1];
   delete this[this.length - 1];
   this.length--;
   return x;
 };
-let x = new Array();
+let x = new Array1();
 x.push(1);
 x.push(2);
 x.push(3);
