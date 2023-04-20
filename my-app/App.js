@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
+import Todo from './Components/Todo';
 
 export default function App() {
   const [state, setState] = useState(0);
@@ -12,7 +13,8 @@ export default function App() {
   };
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: '20px', fontWeight: 'bold' }}>Hello World</Text>
+      <Todo />
+      <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Hello World</Text>
       <Text>First Mobile React-Native App</Text>
       <Text>NAYAN KUMAR</Text>
       <Text>{state}</Text>
@@ -20,16 +22,12 @@ export default function App() {
         <Button
           disabled={state === 10}
           title="ADD"
-          border="1px solid black"
+          style={{ backgroundColor: 'blue' }}
           onPress={handleChange}
         />
-        <Button
-          disabled={state === 0}
-          title="SUBTRACT"
-          border="1px solid black"
-          onPress={handleClick}
-        />
+        <Button disabled={state === 0} title="SUBTRACT" onPress={handleClick} />
       </View>
+
       <StatusBar style="auto" />
     </View>
   );
