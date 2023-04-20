@@ -19,12 +19,7 @@ export default function App() {
       <Text>NAYAN KUMAR</Text>
       <Text>{state}</Text>
       <View style={{ flexDirection: 'row' }}>
-        <Button
-          disabled={state === 10}
-          title="ADD"
-          style={{ backgroundColor: 'blue' }}
-          onPress={handleChange}
-        />
+        <Button disabled={state === 10} title="ADD" onPress={handleChange} />
         <Button disabled={state === 0} title="SUBTRACT" onPress={handleClick} />
       </View>
 
