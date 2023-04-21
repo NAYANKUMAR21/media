@@ -44,7 +44,7 @@ export default function App() {
     setStatement({ ...sent, password: e });
   };
   const handleClick = () => {
-    console.log(sent, state);
+    // console.log(sent, state);
     setState([...state, sent]);
   };
   const handleFilter = (id) => {
