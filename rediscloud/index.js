@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
 
 const redis = require('redis');
 const client = redis.createClient({
