@@ -26,9 +26,7 @@ app.get('/', async (req, res) => {
     await client.quit();
     return res.status(200).send({ message: x });
   } catch (er) {
-    return res
-      .status(400)
-      .send({ message: 'Bad request something fault in syntax' });
+    return res.status(400).send({ message: er.message });
   }
 });
 app.listen(8080, () => {
