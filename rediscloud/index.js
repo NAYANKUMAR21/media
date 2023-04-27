@@ -4,10 +4,9 @@ const mongoose = require('mongoose');
 
 const redis = require('redis');
 const client = redis.createClient({
-  //   host: 'redis-10323.c264.ap-south-1-1.ec2.cloud.redislabs.com',
-  //   port: '10323',
+  host: 'redis-10323.c264.ap-south-1-1.ec2.cloud.redislabs.com',
+  port: '10323',
   //   password: 'gU9oBAT3oqOMS4NyXO01hMggO8yDom8H',
-  url: 'redis://red-ch59eltgk4q8pauckukg:6379',
 });
 client.on('error', (err) => console.log('Redis Client Error', err));
 client.on('connect', () => {
