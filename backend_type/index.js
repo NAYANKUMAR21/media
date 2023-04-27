@@ -3,6 +3,9 @@ const app = express();
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
+const redis = require('redis');
+const client = redis.createClient();
+client.on('error', (err) => console.log('Redis Client Error', err));
 
 app.use(express.json());
 app.use(cors());
@@ -18,7 +21,14 @@ const file = {
 };
 const userSchema = new mongoose.Schema(file);
 const userModel = mongoose.model('user', userSchema);
-
+app.get('/:id', async (req, res) => {
+  const { id } = req.body;
+  try {
+    return res.status(200).send({ message: id });
+  } catch (er) {
+    return res.status(400).send({ message: er.message });
+  }
+});
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -52,9 +62,15 @@ app.post('/signup', async (req, res) => {
 });
 app.get('/', async (req, res) => {
   try {
+    await client.connect();
     const x = await userModel.find();
-    return res.status(200).send({ data: x });
+    await client.set('key', 'Nayan Kumar value');
+    await client.set('key', 'Nayan Kumar value');
+    const value = await client.get('key');
+    await client.disconnect();
+    return res.status(200).send({ x, value });
   } catch (er) {
+    console.log(er);
     return res.status(500).send({ message: er.message });
   }
 });
