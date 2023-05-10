@@ -4,7 +4,7 @@ const Redis = require('ioredis');
 const jwt = require('jsonwebtoken');
 const client = new Redis('redis://red-chdqnd2k728nnn2n11hg:6379');
 
-client.on('error', () => {
+client.on('error', (err) => {
   console.log(`Redis client Error`, err);
 });
 client.on('connect', () => {
