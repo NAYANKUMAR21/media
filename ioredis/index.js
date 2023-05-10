@@ -7,17 +7,10 @@ const client = new Redis({
   port: '6379',
 });
 
-client.on('error', (err) => {
-  console.log(`Redis client Error`, err);
-});
-client.on('connect', () => {
-  console.log('Redis Connected on instance');
-});
 app.get('/', async (req, res) => {
   try {
-    client.connect();
     let y = client.get('token');
-
+    console.log(y);
     if (y) {
       client.quit();
       return res.status(200).send({ message: y });
