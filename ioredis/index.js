@@ -2,7 +2,10 @@ const express = require('express');
 const app = express();
 const Redis = require('ioredis');
 const jwt = require('jsonwebtoken');
-const client = new Redis('redis://red-chdqnd2k728nnn2n11hg:6379');
+const client = new Redis({
+  host: 'redis://red-chdqnd2k728nnn2n11hg',
+  port: '6379',
+});
 
 client.on('error', (err) => {
   console.log(`Redis client Error`, err);
