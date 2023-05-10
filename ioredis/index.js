@@ -3,8 +3,8 @@ const app = express();
 const Redis = require('redis');
 const jwt = require('jsonwebtoken');
 const client = Redis.createClient({
-  host: 'redis-11196.c301.ap-south-1-1.ec2.cloud.redislabs.com',
-  port: '11196',
+  host: '127.0.0.1',
+  port: '6379',
 });
 client.on('error', function (er) {
   console.log('error on redis', er);
