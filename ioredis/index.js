@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const Redis = require('redis');
 const jwt = require('jsonwebtoken');
+const Redis = require('redis');
 const client = Redis.createClient({
   host: 'redis://red-chdqnd2k728nnn2n11hg',
   port: '6379',
@@ -12,9 +12,7 @@ client.on('error', function (er) {
 client.on('connect', function () {
   console.log('redis conncted');
 });
-client.on('quit', () => {
-  console.log('redis quit');
-});
+
 app.get('/', async (req, res) => {
   try {
     await client.connect();
