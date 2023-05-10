@@ -10,7 +10,7 @@ client.on('error', () => {
   console.log(`Redis client Error`, err);
 });
 client.on('connect', () => {
-  console.log('Redis COnnected');
+  console.log('Redis Connected on instance');
 });
 app.get('/', async (req, res) => {
   try {
@@ -18,6 +18,7 @@ app.get('/', async (req, res) => {
     let y = await client.get('token');
 
     if (y) {
+      await client.quit();
       return res.status(200).send({ message: y });
     }
     const token = jwt.sign(
@@ -30,7 +31,7 @@ app.get('/', async (req, res) => {
     );
     await client.set('x', token);
     let z = await client.get('x');
-    await client.disconnect();
+    await client.quit();
     return res.status(200).send({ message: z });
   } catch (er) {
     return res.status(404).send({ message: er.message });
