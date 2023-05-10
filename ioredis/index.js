@@ -1,18 +1,27 @@
 const express = require('express');
 const app = express();
-const Redis = require('ioredis');
+const Redis = require('redis');
 const jwt = require('jsonwebtoken');
-const client = new Redis({
+const client = Redis.createClient({
   host: 'redis-11196.c301.ap-south-1-1.ec2.cloud.redislabs.com',
   port: '11196',
 });
-
+client.on('error', function (er) {
+  console.log('error on redis', er);
+});
+client.on('connect', function () {
+  console.log('redis conncted');
+});
+client.on('quit', () => {
+  console.log('redis quit');
+});
 app.get('/', async (req, res) => {
   try {
-    let y = client.get('token');
+    await client.connect();
+    let y = await client.get('token');
     console.log(y);
     if (y) {
-      client.quit();
+      await client.quit();
       return res.status(200).send({ message: y });
     }
     const token = jwt.sign(
@@ -23,9 +32,9 @@ app.get('/', async (req, res) => {
       },
       'REDIS'
     );
-    client.set('x', token);
-    let z = client.get('x');
-    client.quit();
+    await client.set('token', token);
+    let z = await client.get('token');
+    await client.quit();
     return res.status(200).send({ message: z });
   } catch (er) {
     return res.status(404).send({ message: er.message });
