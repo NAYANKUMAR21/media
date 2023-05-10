@@ -3,8 +3,8 @@ const app = express();
 const Redis = require('ioredis');
 const jwt = require('jsonwebtoken');
 const client = new Redis({
-  host: 'redis://red-chdqnd2k728nnn2n11hg',
-  port: '6379',
+  host: 'redis-11196.c301.ap-south-1-1.ec2.cloud.redislabs.com',
+  port: '11196',
 });
 
 app.get('/', async (req, res) => {
