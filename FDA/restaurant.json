@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "name": "Restaurant A",
+    "address": "123 Main Street",
+    "cuisine": "Italian",
+    "rating": 4.5,
+    "menu": [
+      {
+        "item_id": 1,
+        "name": "Pizza Margherita",
+        "description": "Classic Italian pizza with tomatoes, mozzarella, and basil",
+        "price": 10.99,
+        "ingredients": ["Tomatoes", "Mozzarella", "Basil"]
+      },
+      {
+        "item_id": 2,
+        "name": "Spaghetti Bolognese",
+        "description": "Spaghetti with meat sauce",
+        "price": 12.99,
+        "ingredients": ["Spaghetti", "Beef", "Tomato Sauce", "Herbs"]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Restaurant B",
+    "address": "456 Elm Street",
+    "cuisine": "Chinese",
+    "rating": 4.2,
+    "menu": [
+      {
+        "item_id": 1,
+        "name": "Kung Pao Chicken",
+        "description": "Spicy stir-fried chicken with peanuts",
+        "price": 9.99,
+        "ingredients": ["Chicken", "Peanuts", "Spices", "Vegetables"]
+      },
+      {
+        "item_id": 2,
+        "name": "Beef with Broccoli",
+        "description": "Stir-fried beef with broccoli in a savory sauce",
+        "price": 11.99,
+        "ingredients": ["Beef", "Broccoli", "Soy Sauce", "Garlic"]
+      }
+    ]
+  }
+]
