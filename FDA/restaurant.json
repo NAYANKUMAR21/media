@@ -3,6 +3,7 @@
     "id": 1,
     "name": "Restaurant A",
     "address": "123 Main Street",
+
     "cuisine": "Italian",
     "rating": 4.5,
     "menu": [

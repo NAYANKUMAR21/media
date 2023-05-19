@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@gmail.com",
+      "password": "password",
+      "address": "123 Main Street, Anytown, USA",
+      "phone number": "123-456-7890",
+      "delivery radius": 5,
+      "payment methods": ["credit card", "debit card", "PayPal"]
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "email": "janedoe@gmail.com",
+      "password": "password123",
+      "address": "456 Elm Street, Anytown, USA",
+      "phone number": "456-789-0123",
+      "delivery radius": 10,
+      "payment methods": ["credit card", "PayPal"]
+    },
+    {
+      "id": 3,
+      "name": "Mike Smith",
+      "email": "mikesmith@gmail.com",
+      "password": "123456789",
+      "address": "789 Oak Street, Anytown, USA",
+      "phone number": "789-012-3456",
+      "delivery radius": 15,
+      "payment methods": ["debit card", "PayPal"]
+    },
+    {
+      "id": 4,
+      "name": "Sarah Jones",
+      "email": "sarahjones@gmail.com",
+      "password": "password1234",
+      "address": "987 Pine Street, Anytown, USA",
+      "phone number": "987-012-3456",
+      "delivery radius": 20,
+      "payment methods": ["credit card", "debit card"]
+    },
+    {
+      "id": 5,
+      "name": "David Brown",
+      "email": "davidbrown@gmail.com",
+      "password": "1234567890",
+      "address": "654 Maple Street, Anytown, USA",
+      "phone number": "654-012-3456",
+      "delivery radius": 25,
+      "payment methods": ["credit card", "PayPal"]
+    }
+  ]
+}
