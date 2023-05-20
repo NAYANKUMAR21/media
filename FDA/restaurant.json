@@ -46,6 +46,9 @@
     "rating": 4.2,
     "menu": [
       {
+        "Dimg": "",
+        "MImg": "",
+        "TImg": "",
         "item_id": 1,
         "name": "Kung Pao Chicken",
         "description": "Spicy stir-fried chicken with peanuts",
