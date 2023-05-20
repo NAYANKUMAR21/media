@@ -3,7 +3,8 @@
     "id": 1,
     "name": "Restaurant A",
     "address": "123 Main Street",
-
+    "lat": "",
+    "long": "",
     "cuisine": "Italian",
     "rating": 4.5,
     "menu": [
@@ -20,6 +21,20 @@
         "description": "Spaghetti with meat sauce",
         "price": 12.99,
         "ingredients": ["Spaghetti", "Beef", "Tomato Sauce", "Herbs"]
+      },
+      {
+        "item_id": 3,
+        "name": "Spaghetti xyz",
+        "description": "Spaghetti with",
+        "price": 13.99,
+        "ingredients": []
+      },
+      {
+        "item_id": 4,
+        "name": "abc",
+        "description": "abc with",
+        "price": 14.99,
+        "ingredients": []
       }
     ]
   },
