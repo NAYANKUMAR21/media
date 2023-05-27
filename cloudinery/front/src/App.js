@@ -21,23 +21,6 @@ function App() {
         .then((res) => console.log(index, res.data.url));
     });
     console.log(x);
-
-    // for (let key in files) {
-    //   setState([...state, files[key]]);
-    // }
-
-    // return uploadImage(formData);
-    /*
-    const formData = new FormData();
-      formData.append('file', files[key]);
-      formData.append('upload_preset', 'ukrr1ekh');
-      console.log(key, files[key]);
-      let x = await axios.post(
-        'https://api.cloudinary.com/v1_1/dc3akfh6t/image/upload',
-        formData
-      );
-      console.log(x);
-    */
   };
   return (
     <div>
@@ -50,5 +33,3 @@ function App() {
 }
 
 export default App;
-
-
