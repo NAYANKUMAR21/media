@@ -16,36 +16,24 @@ const file = {
   password: {
     type: String,
     required: [true, 'Enter password'],
-    maxlength: 10,
-    service: function () {
-      return this.email.includes('@gmail.com');
-    },
   },
   UserProfilePic: {
     type: String,
     default: 'default.jpg',
   },
-  Cart: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Product',
-      Quantity: {
-        type: Number,
-        require: [true, 'Enter quantity for the cart Products'],
-      },
-    },
-  ],
-  Wishlist: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Product',
-    },
-  ],
+  Country: { type: String, require: [true, 'Please enter Country '] },
+  State: { type: String, require: true },
+  Address: { type: String, require: [true, 'Please Enter Address'] },
+  Role: {
+    type: String,
+    enum: ['Admin', 'employee', 'User', ''],
+    default: 'User',
+  },
   createdAt: {
     type: Date,
     default: Date.now,
   },
 };
-const UserSchema = new mongoose.Schema(file);
+const UserSchema = new mongoose.Schema(file, { versionKey: false });
 const UserModel = mongoose.model('User', UserSchema);
 module.exports = UserModel;

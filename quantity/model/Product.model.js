@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-
-const productSchema = new mongoose.Schema({
+const file = {
   name: {
     type: String,
     required: true,
@@ -21,6 +20,7 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  gender: { type: String, req: true },
   image: [
     {
       type: String,
@@ -31,12 +31,17 @@ const productSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  review: [
+    {
+      image: { type: String },
+      Name: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now,
   },
-});
-
-const Product = mongoose.model('Product', productSchema);
-
-module.exports = Product;
+};
+const productSchema = new mongoose.Schema(file, { versionKey: false });
+const ProductModel = mongoose.model('Product', productSchema);
+module.exports = ProductModel;

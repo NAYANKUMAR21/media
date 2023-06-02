@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 const SignUpUser = async (req, res) => {
+  console.log(1);
   const {
     firstName,
     lastName,
@@ -11,10 +12,13 @@ const SignUpUser = async (req, res) => {
     UserProfilePic,
     Cart,
     Wishlist,
+    Country,
+    State,
+    Address,
   } = req.body;
   try {
     const isUserPresent = await UserModel.findOne({ email: email });
-    if (!isUserPresent) {
+    if (isUserPresent) {
       return res.status(400).send({ message: 'User already present' });
     }
     let hash = await bcrypt.hash(password, saltRounds);
@@ -26,6 +30,9 @@ const SignUpUser = async (req, res) => {
       UserProfilePic,
       Cart,
       Wishlist,
+      Country,
+      State,
+      Address,
     });
     return res.status(200).send({ message: 'User created successfully' });
   } catch (er) {

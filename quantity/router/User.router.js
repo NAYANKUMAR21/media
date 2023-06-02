@@ -1,5 +1,9 @@
 const express = require('express');
-const { SignUpUser, LoginUser, getAllUsers } = require('../controller/User.controller');
+const {
+  SignUpUser,
+  LoginUser,
+  getAllUsers,
+} = require('../controller/User.controller');
 const app = express.Router();
 app.get('/', getAllUsers);
 app.post('/login', LoginUser);
