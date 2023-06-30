@@ -12,21 +12,21 @@ const client = redis.createClient({
   },
   password: 'rLoi4R7GkfJOdkI3OrhVwuSWNwxC8zg4',
 });
-client.on('connect', () => {
+client.connect(() => {
   console.log('Redis Connected....');
 });
 
-client.on('ready', () => {
-  console.log('Redis Ready to use');
-});
+// client.ready(() => {
+//   console.log('Redis Ready to use');
+// });
 
-client.on('error', (err) => {
-  console.log('Redis Client Error', err.message);
-});
+// client.on('error', (err) => {
+//   console.log('Redis Client Error', err.message);
+// });
 
-client.on('end', () => {
-  console.log('Client disconnected from redis');
-});
+// client.on('end', () => {
+//   console.log('Client disconnected from redis');
+// });
 
 process.on('SIGINT', async () => {
   await client.quit();
