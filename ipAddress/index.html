@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Hello
+  </body>
+  <script>
+    window.onload = fetch('https://api.ipify.org/?format=json')
+      .then((response) => response.json())
+      .then((data) => {
+        const ipAddress = data.ip;
+        console.log('User IP address:', ipAddress, data);
+        // Perform further operations with the IP address
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  </script>
+</html>
