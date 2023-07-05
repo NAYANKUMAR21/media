@@ -9,7 +9,10 @@
     Hello
   </body>
   <script>
-    window.onload = fetch('https://api.ipify.org/?format=json')
+    // alternate URL = 'https://api.ipify.org/?format=json'
+    window.onload = fetch(
+      'https://api.ip2location.io?key={YOUR API KEY}&ip={Ip ADdress}&format=json'
+    )
       .then((response) => response.json())
       .then((data) => {
         const ipAddress = data.ip;
